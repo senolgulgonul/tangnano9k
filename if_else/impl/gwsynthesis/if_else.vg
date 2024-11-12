@@ -1,0 +1,56 @@
+//
+//Written by GowinSynthesis
+//Tool Version "V1.9.9.03 (64-bit)"
+//Fri Oct 25 23:01:43 2024
+
+//Source file index table:
+//file0 "\D:/docs/ostim/digital/gowin/if_else/src/top.v"
+`timescale 100 ps/100 ps
+module conditional_assign (
+  a,
+  b
+)
+;
+input a;
+output [5:0] b;
+wire a_d;
+wire VCC;
+wire GND;
+  IBUF a_ibuf (
+    .O(a_d),
+    .I(a) 
+);
+  OBUF b_0_obuf (
+    .O(b[0]),
+    .I(a_d) 
+);
+  OBUF b_1_obuf (
+    .O(b[1]),
+    .I(a_d) 
+);
+  OBUF b_2_obuf (
+    .O(b[2]),
+    .I(a_d) 
+);
+  OBUF b_3_obuf (
+    .O(b[3]),
+    .I(a_d) 
+);
+  OBUF b_4_obuf (
+    .O(b[4]),
+    .I(a_d) 
+);
+  OBUF b_5_obuf (
+    .O(b[5]),
+    .I(a_d) 
+);
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+  GSR GSR (
+    .GSRI(VCC) 
+);
+endmodule /* conditional_assign */
