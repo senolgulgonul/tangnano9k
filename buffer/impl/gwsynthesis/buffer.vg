@@ -1,0 +1,36 @@
+//
+//Written by GowinSynthesis
+//Tool Version "V1.9.9.03 (64-bit)"
+//Fri Oct 25 22:19:53 2024
+
+//Source file index table:
+//file0 "\D:/docs/ostim/digital/gowin/buffer/src/buffer.v"
+`timescale 100 ps/100 ps
+module simple_assign (
+  in,
+  out
+)
+;
+input in;
+output out;
+wire out_d;
+wire VCC;
+wire GND;
+  IBUF in_ibuf (
+    .O(out_d),
+    .I(in) 
+);
+  OBUF out_obuf (
+    .O(out),
+    .I(out_d) 
+);
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+  GSR GSR (
+    .GSRI(VCC) 
+);
+endmodule /* simple_assign */
