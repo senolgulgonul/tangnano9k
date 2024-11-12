@@ -1,0 +1,50 @@
+//
+//Written by GowinSynthesis
+//Tool Version "V1.9.9.03 (64-bit)"
+//Fri Oct 25 22:48:40 2024
+
+//Source file index table:
+//file0 "\D:/docs/ostim/digital/gowin/andgate/src/top.v"
+`timescale 100 ps/100 ps
+module and_gate_primitive (
+  a,
+  b,
+  out
+)
+;
+input a;
+input b;
+output out;
+wire a_d;
+wire b_d;
+wire out_d;
+wire VCC;
+wire GND;
+  IBUF a_ibuf (
+    .O(a_d),
+    .I(a) 
+);
+  IBUF b_ibuf (
+    .O(b_d),
+    .I(b) 
+);
+  OBUF out_obuf (
+    .O(out),
+    .I(out_d) 
+);
+  LUT2 out_d_s (
+    .F(out_d),
+    .I0(a_d),
+    .I1(b_d) 
+);
+defparam out_d_s.INIT=4'h8;
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+  GSR GSR (
+    .GSRI(VCC) 
+);
+endmodule /* and_gate_primitive */
