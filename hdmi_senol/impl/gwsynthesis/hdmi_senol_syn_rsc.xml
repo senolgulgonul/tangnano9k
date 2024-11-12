@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="HDMI_test" Register="67" Alu="62" Lut="35" T_Register="109(67)" T_Alu="74(62)" T_Lut="185(35)">
+    <SubModule name="pllInstance"/>
+    <SubModule name="encode_R" Register="14" Alu="4" Lut="46" T_Register="14(14)" T_Alu="4(4)" T_Lut="46(46)"/>
+    <SubModule name="encode_G" Register="14" Alu="4" Lut="49" T_Register="14(14)" T_Alu="4(4)" T_Lut="49(49)"/>
+    <SubModule name="encode_B" Register="14" Alu="4" Lut="55" T_Register="14(14)" T_Alu="4(4)" T_Lut="55(55)"/>
+</Module>

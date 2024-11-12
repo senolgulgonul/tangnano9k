@@ -1,0 +1,44 @@
+[
+ {
+  "InstFile" : "D:/docs/ostim/digital/gowin/hdmi_senol/src/top.v",
+  "InstLine" : 1,
+  "InstName" : "HDMI_test",
+  "ModuleFile" : "D:/docs/ostim/digital/gowin/hdmi_senol/src/top.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "HDMI_test",
+  "SubInsts" : [
+   {
+    "InstFile" : "D:/docs/ostim/digital/gowin/hdmi_senol/src/top.v",
+    "InstLine" : 12,
+    "InstName" : "pllInstance",
+    "ModuleFile" : "D:/docs/ostim/digital/gowin/hdmi_senol/src/gowin_rpll/gowin_rpll.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "Gowin_rPLL"
+   },
+   {
+    "InstFile" : "D:/docs/ostim/digital/gowin/hdmi_senol/src/top.v",
+    "InstLine" : 35,
+    "InstName" : "encode_R",
+    "ModuleFile" : "D:/docs/ostim/digital/gowin/hdmi_senol/src/top.v",
+    "ModuleLine" : 76,
+    "ModuleName" : "TMDS_encoder"
+   },
+   {
+    "InstFile" : "D:/docs/ostim/digital/gowin/hdmi_senol/src/top.v",
+    "InstLine" : 36,
+    "InstName" : "encode_G",
+    "ModuleFile" : "D:/docs/ostim/digital/gowin/hdmi_senol/src/top.v",
+    "ModuleLine" : 76,
+    "ModuleName" : "TMDS_encoder"
+   },
+   {
+    "InstFile" : "D:/docs/ostim/digital/gowin/hdmi_senol/src/top.v",
+    "InstLine" : 37,
+    "InstName" : "encode_B",
+    "ModuleFile" : "D:/docs/ostim/digital/gowin/hdmi_senol/src/top.v",
+    "ModuleLine" : 76,
+    "ModuleName" : "TMDS_encoder"
+   }
+  ]
+ }
+]
