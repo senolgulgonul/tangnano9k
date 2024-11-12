@@ -1,6 +1,6 @@
 I found Tang NAno 9K HDMI example very complex https://github.com/sipeed/TangNano-9K-example/tree/main/hdmi  and no documentation.  
-While looking a simple HDMI example, I found https://www.fpga4fun.com/HDMI.html example written for Spartan.
-I Modified it and adapted for Tang Nano 9K
+While looking a simple HDMI example, I found https://www.fpga4fun.com/HDMI.html example written for Spartan, Thanks.
+I modified it and adapted for Tang Nano 9K
 Important Points: 
 - HDMI clock frequency seems not critical much for resolution. Although 25.2 MHz defined for 640x480, 27MHz working too. 
 - The resolution is defined by the horizontal sync (hSync) and vertical sync (vSync) signals, which determine the timing of the display. 
