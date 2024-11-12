@@ -1,11 +1,14 @@
 I found Tang NAno 9K HDMI example very complex https://github.com/sipeed/TangNano-9K-example/tree/main/hdmi  and no documentation.  
-While looking a simple HDMI example, I found https://www.fpga4fun.com/HDMI.html example written for Spartan
-Modified it and adapted for Tang Nano 9K
+While looking a simple HDMI example, I found https://www.fpga4fun.com/HDMI.html example written for Spartan.
+I Modified it and adapted for Tang Nano 9K
 Important Points: 
-HDMI clock frequency seems not critical much for resolution. Although 25.2 MHz defined for 640x480, 27MHz working too. 
-The resolution is defined by the horizontal sync (hSync) and vertical sync (vSync) signals, which determine the timing of the display. 
-The pixel clock (clk) dictates the rate at which pixels are transmitted.
-I user OSER10 builtin serializer, which requires 5xpixel clock. (probably serializin ad posedge and negedge, thats why it is no 10xpixel clock as in fpga4fun example)
-I used rPLL to have both 27MHz pixel clock and 5x27 = 135MHz TMDS clock
-Differential pairs are generated using ELVDS_OBUF, otherwise you will not see pairs at FloorPlanner
-TMDS endoer is from fpga4fun
+- HDMI clock frequency seems not critical much for resolution. Although 25.2 MHz defined for 640x480, 27MHz working too. 
+- The resolution is defined by the horizontal sync (hSync) and vertical sync (vSync) signals, which determine the timing of the display. 
+- The pixel clock (clk) dictates the rate at which pixels are transmitted.
+- I used OSER10 builtin serializer, which requires 5xpixel clock. (probably serializin ad posedge and negedge, thats why it is no 10xpixel clock as in fpga4fun example)
+- I used rPLL to have both 27MHz pixel clock and 5x27 = 135MHz TMDS clock
+- Differential pairs are generated using ELVDS_OBUF, otherwise you will not see pairs at FloorPlanner
+- TMDS endoer is from fpga4fun
+- HDMI port of notebooks are OUTPUT only. 
+- Thus I connected HDMI output of Tang Nano 9K to my notebook with HDMI Video Capture to USB device and windows camera application.
+- I dont need external OLED screen
