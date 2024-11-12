@@ -1,0 +1,56 @@
+//
+//Written by GowinSynthesis
+//Tool Version "V1.9.9.03 (64-bit)"
+//Fri Oct 25 23:08:53 2024
+
+//Source file index table:
+//file0 "\D:/docs/ostim/digital/gowin/case/src/top.v"
+`timescale 100 ps/100 ps
+module conditional_assign_case (
+  a,
+  b
+)
+;
+input a;
+output [5:0] b;
+wire [0:0] b_d;
+wire VCC;
+wire GND;
+  IBUF a_ibuf (
+    .O(b_d[0]),
+    .I(a) 
+);
+  OBUF b_0_obuf (
+    .O(b[0]),
+    .I(b_d[0]) 
+);
+  OBUF b_1_obuf (
+    .O(b[1]),
+    .I(b_d[0]) 
+);
+  OBUF b_2_obuf (
+    .O(b[2]),
+    .I(b_d[0]) 
+);
+  OBUF b_3_obuf (
+    .O(b[3]),
+    .I(b_d[0]) 
+);
+  OBUF b_4_obuf (
+    .O(b[4]),
+    .I(b_d[0]) 
+);
+  OBUF b_5_obuf (
+    .O(b[5]),
+    .I(b_d[0]) 
+);
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+  GSR GSR (
+    .GSRI(VCC) 
+);
+endmodule /* conditional_assign_case */
