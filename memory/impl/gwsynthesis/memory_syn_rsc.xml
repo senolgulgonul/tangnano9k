@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="memory_example" Register="44" Alu="36" Lut="21" T_Register="44(44)" T_Alu="36(36)" T_Lut="21(21)"/>
