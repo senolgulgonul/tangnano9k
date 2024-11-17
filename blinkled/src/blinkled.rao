@@ -1,0 +1,45 @@
+<?xml version="1" encoding="UTF-8"?>
+<GAO_CONFIG>
+    <Version>3.0</Version>
+    <Mode>Lite</Mode>
+    <AoCore_Lite index="0" sample_clock="clk" trig_type="0" capture_amount="1024" implemention="0" input_register_enabled="0" capture_init_data_enabled="0" module_name="blinkled">
+        <SignalList>
+            <Signal capture_enable="true">clk</Signal>
+            <Bus capture_enable="true" name="leds[5:0]">
+                <Signal>leds[5]</Signal>
+                <Signal>leds[4]</Signal>
+                <Signal>leds[3]</Signal>
+                <Signal>leds[2]</Signal>
+                <Signal>leds[1]</Signal>
+                <Signal>leds[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="clockCounter[23:0]">
+                <Signal>clockCounter[23]</Signal>
+                <Signal>clockCounter[22]</Signal>
+                <Signal>clockCounter[21]</Signal>
+                <Signal>clockCounter[20]</Signal>
+                <Signal>clockCounter[19]</Signal>
+                <Signal>clockCounter[18]</Signal>
+                <Signal>clockCounter[17]</Signal>
+                <Signal>clockCounter[16]</Signal>
+                <Signal>clockCounter[15]</Signal>
+                <Signal>clockCounter[14]</Signal>
+                <Signal>clockCounter[13]</Signal>
+                <Signal>clockCounter[12]</Signal>
+                <Signal>clockCounter[11]</Signal>
+                <Signal>clockCounter[10]</Signal>
+                <Signal>clockCounter[9]</Signal>
+                <Signal>clockCounter[8]</Signal>
+                <Signal>clockCounter[7]</Signal>
+                <Signal>clockCounter[6]</Signal>
+                <Signal>clockCounter[5]</Signal>
+                <Signal>clockCounter[4]</Signal>
+                <Signal>clockCounter[3]</Signal>
+                <Signal>clockCounter[2]</Signal>
+                <Signal>clockCounter[1]</Signal>
+                <Signal>clockCounter[0]</Signal>
+            </Bus>
+        </SignalList>
+    </AoCore_Lite>
+    <GAO_ID>0110111001111111</GAO_ID>
+</GAO_CONFIG>
