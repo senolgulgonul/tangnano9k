@@ -1,0 +1,91 @@
+//
+//Written by GowinSynthesis
+//Tool Version "V1.9.9.03 (64-bit)"
+//Sun Nov 17 20:55:55 2024
+
+//Source file index table:
+//file0 "\D:/docs/ostim/digital/gowin/clk_out/src/top.v"
+`timescale 100 ps/100 ps
+module clockdivider (
+  clk,
+  out1
+)
+;
+input clk;
+output out1;
+wire clk_d;
+wire n8_4;
+wire n7_4;
+wire n6_4;
+wire out1_d;
+wire n9_7;
+wire [2:0] c1;
+wire VCC;
+wire GND;
+  IBUF clk_ibuf (
+    .O(clk_d),
+    .I(clk) 
+);
+  OBUF out1_obuf (
+    .O(out1),
+    .I(out1_d) 
+);
+  LUT2 n8_s0 (
+    .F(n8_4),
+    .I0(c1[0]),
+    .I1(c1[1]) 
+);
+defparam n8_s0.INIT=4'h6;
+  LUT3 n7_s0 (
+    .F(n7_4),
+    .I0(c1[0]),
+    .I1(c1[1]),
+    .I2(c1[2]) 
+);
+defparam n7_s0.INIT=8'h78;
+  LUT4 n6_s0 (
+    .F(n6_4),
+    .I0(c1[0]),
+    .I1(c1[1]),
+    .I2(c1[2]),
+    .I3(out1_d) 
+);
+defparam n6_s0.INIT=16'h7F80;
+  DFF c1_2_s0 (
+    .Q(c1[2]),
+    .D(n7_4),
+    .CLK(clk_d) 
+);
+defparam c1_2_s0.INIT=1'b0;
+  DFF c1_1_s0 (
+    .Q(c1[1]),
+    .D(n8_4),
+    .CLK(clk_d) 
+);
+defparam c1_1_s0.INIT=1'b0;
+  DFF c1_0_s0 (
+    .Q(c1[0]),
+    .D(n9_7),
+    .CLK(clk_d) 
+);
+defparam c1_0_s0.INIT=1'b0;
+  DFF c1_3_s0 (
+    .Q(out1_d),
+    .D(n6_4),
+    .CLK(clk_d) 
+);
+defparam c1_3_s0.INIT=1'b0;
+  INV n9_s2 (
+    .O(n9_7),
+    .I(c1[0]) 
+);
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+  GSR GSR (
+    .GSRI(VCC) 
+);
+endmodule /* clockdivider */
