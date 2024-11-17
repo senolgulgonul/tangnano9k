@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="music" Register="48" Alu="29" Lut="52" T_Register="48(48)" T_Alu="29(29)" T_Lut="52(52)" T_Bsram="1(0)">
+    <SubModule name="get_fullnote" Bsram="1" T_Bsram="1(1)"/>
+</Module>

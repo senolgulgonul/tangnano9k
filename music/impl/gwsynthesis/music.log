@@ -1,0 +1,27 @@
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file 'D:\docs\ostim\digital\gowin\music\src\top.v'
+Compiling module 'music'("D:\docs\ostim\digital\gowin\music\src\top.v":9)
+Compiling module 'music_ROM'("D:\docs\ostim\digital\gowin\music\src\top.v":84)
+Compiling module 'divide_by12'("D:\docs\ostim\digital\gowin\music\src\top.v":51)
+NOTE  (EX0101) : Current top module is "music"
+[5%] Running netlist conversion ...
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+WARN  (NL0002) : The module "divide_by12" instantiated to "get_octave_and_note" is swept in optimizing("D:\docs\ostim\digital\gowin\music\src\top.v":22)
+[95%] Generate netlist file "D:\docs\ostim\digital\gowin\music\impl\gwsynthesis\music.vg" completed
+[100%] Generate report file "D:\docs\ostim\digital\gowin\music\impl\gwsynthesis\music_syn.rpt.html" completed
+GowinSynthesis finish

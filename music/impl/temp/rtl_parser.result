@@ -1,0 +1,28 @@
+[
+ {
+  "InstFile" : "D:/docs/ostim/digital/gowin/music/src/top.v",
+  "InstLine" : 9,
+  "InstName" : "music",
+  "ModuleFile" : "D:/docs/ostim/digital/gowin/music/src/top.v",
+  "ModuleLine" : 9,
+  "ModuleName" : "music",
+  "SubInsts" : [
+   {
+    "InstFile" : "D:/docs/ostim/digital/gowin/music/src/top.v",
+    "InstLine" : 18,
+    "InstName" : "get_fullnote",
+    "ModuleFile" : "D:/docs/ostim/digital/gowin/music/src/top.v",
+    "ModuleLine" : 84,
+    "ModuleName" : "music_ROM"
+   },
+   {
+    "InstFile" : "D:/docs/ostim/digital/gowin/music/src/top.v",
+    "InstLine" : 22,
+    "InstName" : "get_octave_and_note",
+    "ModuleFile" : "D:/docs/ostim/digital/gowin/music/src/top.v",
+    "ModuleLine" : 51,
+    "ModuleName" : "divide_by12"
+   }
+  ]
+ }
+]

@@ -1,0 +1,1093 @@
+//
+//Written by GowinSynthesis
+//Tool Version "V1.9.9.03 (64-bit)"
+//Sat Oct 19 21:19:35 2024
+
+//Source file index table:
+//file0 "\D:/docs/ostim/digital/gowin/music/src/top.v"
+`timescale 100 ps/100 ps
+module music_ROM (
+  clk_d,
+  tone,
+  note_Z,
+  fullnote
+)
+;
+input clk_d;
+input [29:22] tone;
+output [1:0] note_Z;
+output [5:2] fullnote;
+wire [31:6] DO;
+wire VCC;
+wire GND;
+  pROM note_Z_0_s (
+    .DO({DO[31:6],fullnote[5:2],note_Z[1:0]}),
+    .AD({GND,GND,GND,tone[29:22],GND,GND,GND}),
+    .CLK(clk_d),
+    .CE(VCC),
+    .OCE(GND),
+    .RESET(GND) 
+);
+defparam note_Z_0_s.BIT_WIDTH=8;
+defparam note_Z_0_s.INIT_RAM_00=256'h1D1D1D1D1D1D1D1D1E1E19191B191B191919191919191B1B1E1E1616191B1B19;
+defparam note_Z_0_s.INIT_RAM_01=256'h16161616161616161B1B19191B191B191919191919191B1B1D1D141417191917;
+defparam note_Z_0_s.INIT_RAM_02=256'h1D1D1D1D1D1D1D1D1E1E19191B191B191919191919191B1B1E1E1616191B1B19;
+defparam note_Z_0_s.INIT_RAM_03=256'h1E1E1E1E1E1E1E1E202019191B191B191919191919191B1B1D1D141417191917;
+defparam note_Z_0_s.INIT_RAM_04=256'h1616161616161616171719191B1B171719191919161619191B1E1E1E1B1B1B1B;
+defparam note_Z_0_s.INIT_RAM_05=256'h14141414141719191B1B1D1D1E1E1E1E1D1D1D1D1D1D1D1D1B1B191916161414;
+defparam note_Z_0_s.INIT_RAM_06=256'h1D1D1D1D1D1D1D1D1E1E19191B191B191919191919191B1B1E1E1616191B1B19;
+defparam note_Z_0_s.INIT_RAM_07=256'h000000000000000000000000000000191919191919191B1B1D1D141417191917;
+defparam note_Z_0_s.READ_MODE=1'b0;
+defparam note_Z_0_s.RESET_MODE="SYNC";
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+endmodule /* music_ROM */
+module music (
+  clk,
+  speaker
+)
+;
+input clk;
+output speaker;
+wire clk_d;
+wire n93_4;
+wire n104_3;
+wire n105_3;
+wire n106_3;
+wire n107_3;
+wire n108_3;
+wire n109_3;
+wire n110_3;
+wire n111_3;
+wire n112_3;
+wire n142_3;
+wire n143_3;
+wire n144_3;
+wire n145_4;
+wire n146_3;
+wire n147_3;
+wire n148_3;
+wire n169_3;
+wire n173_3;
+wire n93_5;
+wire n93_6;
+wire n104_4;
+wire n105_4;
+wire n106_4;
+wire n107_4;
+wire n107_5;
+wire n108_4;
+wire n109_4;
+wire n109_5;
+wire n110_4;
+wire n110_5;
+wire n111_4;
+wire n112_4;
+wire n142_4;
+wire n142_5;
+wire n142_6;
+wire n143_4;
+wire n143_5;
+wire n144_4;
+wire n145_5;
+wire n146_4;
+wire n173_4;
+wire n105_5;
+wire n105_6;
+wire n105_7;
+wire n144_5;
+wire n145_6;
+wire n173_5;
+wire n173_6;
+wire speaker_d;
+wire n35_1;
+wire n35_2;
+wire n34_1;
+wire n34_2;
+wire n33_1;
+wire n33_2;
+wire n32_1;
+wire n32_2;
+wire n31_1;
+wire n31_2;
+wire n30_1;
+wire n30_2;
+wire n29_1;
+wire n29_2;
+wire n28_1;
+wire n28_2;
+wire n27_1;
+wire n27_2;
+wire n26_1;
+wire n26_2;
+wire n25_1;
+wire n25_2;
+wire n24_1;
+wire n24_2;
+wire n23_1;
+wire n23_2;
+wire n22_1;
+wire n22_2;
+wire n21_1;
+wire n21_2;
+wire n20_1;
+wire n20_2;
+wire n19_1;
+wire n19_2;
+wire n18_1;
+wire n18_2;
+wire n17_1;
+wire n17_2;
+wire n16_3;
+wire n16_4;
+wire n15_3;
+wire n15_4;
+wire n14_3;
+wire n14_4;
+wire n13_3;
+wire n13_4;
+wire n12_3;
+wire n12_4;
+wire n11_3;
+wire n11_4;
+wire n10_3;
+wire n10_4;
+wire n9_3;
+wire n9_4;
+wire n8_3;
+wire n8_4;
+wire n7_3;
+wire n7_1_COUT;
+wire n175_5;
+wire n141_10;
+wire n36_6;
+wire [29:0] tone;
+wire [8:0] counter_note;
+wire [7:0] counter_octave;
+wire [1:0] note_Z;
+wire [5:2] fullnote;
+wire VCC;
+wire GND;
+  IBUF clk_ibuf (
+    .O(clk_d),
+    .I(clk) 
+);
+  OBUF speaker_obuf (
+    .O(speaker),
+    .I(speaker_d) 
+);
+  LUT4 n93_s0 (
+    .F(n93_4),
+    .I0(counter_note[4]),
+    .I1(counter_note[5]),
+    .I2(n93_5),
+    .I3(n93_6) 
+);
+defparam n93_s0.INIT=16'h1000;
+  LUT4 n104_s0 (
+    .F(n104_3),
+    .I0(counter_note[6]),
+    .I1(counter_note[7]),
+    .I2(n104_4),
+    .I3(counter_note[8]) 
+);
+defparam n104_s0.INIT=16'hEF10;
+  LUT4 n105_s0 (
+    .F(n105_3),
+    .I0(n105_4),
+    .I1(counter_note[6]),
+    .I2(n104_4),
+    .I3(counter_note[7]) 
+);
+defparam n105_s0.INIT=16'hCF10;
+  LUT4 n106_s0 (
+    .F(n106_3),
+    .I0(n106_4),
+    .I1(n93_4),
+    .I2(n104_4),
+    .I3(counter_note[6]) 
+);
+defparam n106_s0.INIT=16'h0BB0;
+  LUT3 n107_s0 (
+    .F(n107_3),
+    .I0(n93_4),
+    .I1(n107_4),
+    .I2(n107_5) 
+);
+defparam n107_s0.INIT=8'h07;
+  LUT4 n108_s0 (
+    .F(n108_3),
+    .I0(n108_4),
+    .I1(n93_4),
+    .I2(n93_6),
+    .I3(counter_note[4]) 
+);
+defparam n108_s0.INIT=16'h0770;
+  LUT4 n109_s0 (
+    .F(n109_3),
+    .I0(n109_4),
+    .I1(n93_4),
+    .I2(counter_note[3]),
+    .I3(n109_5) 
+);
+defparam n109_s0.INIT=16'h0BB0;
+  LUT4 n110_s0 (
+    .F(n110_3),
+    .I0(n110_4),
+    .I1(n93_4),
+    .I2(counter_note[2]),
+    .I3(n110_5) 
+);
+defparam n110_s0.INIT=16'h0BB0;
+  LUT4 n111_s0 (
+    .F(n111_3),
+    .I0(n111_4),
+    .I1(n93_4),
+    .I2(counter_note[0]),
+    .I3(counter_note[1]) 
+);
+defparam n111_s0.INIT=16'h7007;
+  LUT3 n112_s0 (
+    .F(n112_3),
+    .I0(n93_4),
+    .I1(n112_4),
+    .I2(counter_note[0]) 
+);
+defparam n112_s0.INIT=8'h07;
+  LUT4 n142_s0 (
+    .F(n142_3),
+    .I0(n142_4),
+    .I1(n142_5),
+    .I2(n142_6),
+    .I3(counter_octave[7]) 
+);
+defparam n142_s0.INIT=16'h3F80;
+  LUT3 n143_s0 (
+    .F(n143_3),
+    .I0(n143_4),
+    .I1(counter_octave[6]),
+    .I2(n143_5) 
+);
+defparam n143_s0.INIT=8'h1C;
+  LUT4 n144_s0 (
+    .F(n144_3),
+    .I0(n144_4),
+    .I1(counter_octave[4]),
+    .I2(n142_5),
+    .I3(counter_octave[5]) 
+);
+defparam n144_s0.INIT=16'hCF10;
+  LUT3 n145_s1 (
+    .F(n145_4),
+    .I0(n145_5),
+    .I1(counter_octave[4]),
+    .I2(n142_5) 
+);
+defparam n145_s1.INIT=8'h14;
+  LUT4 n146_s0 (
+    .F(n146_3),
+    .I0(fullnote[2]),
+    .I1(fullnote[3]),
+    .I2(n145_5),
+    .I3(n146_4) 
+);
+defparam n146_s0.INIT=16'h007F;
+  LUT3 n147_s0 (
+    .F(n147_3),
+    .I0(counter_octave[0]),
+    .I1(counter_octave[1]),
+    .I2(counter_octave[2]) 
+);
+defparam n147_s0.INIT=8'hE1;
+  LUT2 n148_s0 (
+    .F(n148_3),
+    .I0(counter_octave[0]),
+    .I1(counter_octave[1]) 
+);
+defparam n148_s0.INIT=4'h9;
+  LUT4 n169_s0 (
+    .F(n169_3),
+    .I0(counter_octave[7]),
+    .I1(n93_4),
+    .I2(n142_5),
+    .I3(n142_6) 
+);
+defparam n169_s0.INIT=16'h4000;
+  LUT4 n173_s0 (
+    .F(n173_3),
+    .I0(counter_octave[7]),
+    .I1(n173_4),
+    .I2(n93_4),
+    .I3(n142_5) 
+);
+defparam n173_s0.INIT=16'h4000;
+  LUT3 n93_s1 (
+    .F(n93_5),
+    .I0(counter_note[6]),
+    .I1(counter_note[7]),
+    .I2(counter_note[8]) 
+);
+defparam n93_s1.INIT=8'h01;
+  LUT4 n93_s2 (
+    .F(n93_6),
+    .I0(counter_note[0]),
+    .I1(counter_note[1]),
+    .I2(counter_note[2]),
+    .I3(counter_note[3]) 
+);
+defparam n93_s2.INIT=16'h0001;
+  LUT3 n104_s1 (
+    .F(n104_4),
+    .I0(counter_note[4]),
+    .I1(counter_note[5]),
+    .I2(n93_6) 
+);
+defparam n104_s1.INIT=8'h10;
+  LUT4 n105_s1 (
+    .F(n105_4),
+    .I0(n105_5),
+    .I1(n105_6),
+    .I2(n105_7),
+    .I3(counter_note[8]) 
+);
+defparam n105_s1.INIT=16'h001F;
+  LUT4 n106_s1 (
+    .F(n106_4),
+    .I0(n105_7),
+    .I1(n105_6),
+    .I2(note_Z[0]),
+    .I3(note_Z[1]) 
+);
+defparam n106_s1.INIT=16'h2AAC;
+  LUT4 n107_s1 (
+    .F(n107_4),
+    .I0(note_Z[0]),
+    .I1(n105_6),
+    .I2(note_Z[1]),
+    .I3(n105_7) 
+);
+defparam n107_s1.INIT=16'h61F7;
+  LUT3 n107_s2 (
+    .F(n107_5),
+    .I0(counter_note[4]),
+    .I1(n93_6),
+    .I2(counter_note[5]) 
+);
+defparam n107_s2.INIT=8'h4B;
+  LUT4 n108_s1 (
+    .F(n108_4),
+    .I0(n105_6),
+    .I1(note_Z[1]),
+    .I2(note_Z[0]),
+    .I3(n105_7) 
+);
+defparam n108_s1.INIT=16'hACF7;
+  LUT4 n109_s1 (
+    .F(n109_4),
+    .I0(n105_6),
+    .I1(n105_7),
+    .I2(note_Z[0]),
+    .I3(note_Z[1]) 
+);
+defparam n109_s1.INIT=16'hB778;
+  LUT3 n109_s2 (
+    .F(n109_5),
+    .I0(counter_note[0]),
+    .I1(counter_note[1]),
+    .I2(counter_note[2]) 
+);
+defparam n109_s2.INIT=8'h01;
+  LUT4 n110_s1 (
+    .F(n110_4),
+    .I0(n105_6),
+    .I1(note_Z[0]),
+    .I2(note_Z[1]),
+    .I3(n105_7) 
+);
+defparam n110_s1.INIT=16'hE7FC;
+  LUT2 n110_s2 (
+    .F(n110_5),
+    .I0(counter_note[0]),
+    .I1(counter_note[1]) 
+);
+defparam n110_s2.INIT=4'h1;
+  LUT3 n111_s1 (
+    .F(n111_4),
+    .I0(note_Z[1]),
+    .I1(note_Z[0]),
+    .I2(n105_6) 
+);
+defparam n111_s1.INIT=8'h0B;
+  LUT4 n112_s1 (
+    .F(n112_4),
+    .I0(note_Z[1]),
+    .I1(note_Z[0]),
+    .I2(n105_6),
+    .I3(n105_7) 
+);
+defparam n112_s1.INIT=16'hC0BF;
+  LUT4 n142_s1 (
+    .F(n142_4),
+    .I0(fullnote[3]),
+    .I1(fullnote[2]),
+    .I2(fullnote[4]),
+    .I3(fullnote[5]) 
+);
+defparam n142_s1.INIT=16'h0007;
+  LUT4 n142_s2 (
+    .F(n142_5),
+    .I0(counter_octave[0]),
+    .I1(counter_octave[1]),
+    .I2(counter_octave[2]),
+    .I3(counter_octave[3]) 
+);
+defparam n142_s2.INIT=16'h0001;
+  LUT3 n142_s3 (
+    .F(n142_6),
+    .I0(counter_octave[4]),
+    .I1(counter_octave[5]),
+    .I2(counter_octave[6]) 
+);
+defparam n142_s3.INIT=8'h01;
+  LUT4 n143_s1 (
+    .F(n143_4),
+    .I0(fullnote[3]),
+    .I1(fullnote[4]),
+    .I2(fullnote[5]),
+    .I3(counter_octave[7]) 
+);
+defparam n143_s1.INIT=16'h00F8;
+  LUT3 n143_s2 (
+    .F(n143_5),
+    .I0(counter_octave[4]),
+    .I1(counter_octave[5]),
+    .I2(n142_5) 
+);
+defparam n143_s2.INIT=8'h10;
+  LUT3 n144_s1 (
+    .F(n144_4),
+    .I0(counter_octave[6]),
+    .I1(counter_octave[7]),
+    .I2(n144_5) 
+);
+defparam n144_s1.INIT=8'h10;
+  LUT4 n145_s2 (
+    .F(n145_5),
+    .I0(counter_octave[7]),
+    .I1(n145_6),
+    .I2(n142_5),
+    .I3(n142_6) 
+);
+defparam n145_s2.INIT=16'h4000;
+  LUT4 n146_s1 (
+    .F(n146_4),
+    .I0(counter_octave[0]),
+    .I1(counter_octave[1]),
+    .I2(counter_octave[2]),
+    .I3(counter_octave[3]) 
+);
+defparam n146_s1.INIT=16'h01FE;
+  LUT4 n173_s1 (
+    .F(n173_4),
+    .I0(n173_5),
+    .I1(n105_5),
+    .I2(n173_6),
+    .I3(n142_6) 
+);
+defparam n173_s1.INIT=16'h0700;
+  LUT2 n105_s2 (
+    .F(n105_5),
+    .I0(note_Z[0]),
+    .I1(note_Z[1]) 
+);
+defparam n105_s2.INIT=4'h1;
+  LUT4 n105_s3 (
+    .F(n105_6),
+    .I0(fullnote[2]),
+    .I1(fullnote[3]),
+    .I2(fullnote[5]),
+    .I3(fullnote[4]) 
+);
+defparam n105_s3.INIT=16'hD6BD;
+  LUT4 n105_s4 (
+    .F(n105_7),
+    .I0(fullnote[2]),
+    .I1(fullnote[4]),
+    .I2(fullnote[3]),
+    .I3(fullnote[5]) 
+);
+defparam n105_s4.INIT=16'h9EE7;
+  LUT4 n144_s2 (
+    .F(n144_5),
+    .I0(fullnote[3]),
+    .I1(fullnote[4]),
+    .I2(fullnote[2]),
+    .I3(fullnote[5]) 
+);
+defparam n144_s2.INIT=16'hFE00;
+  LUT2 n145_s3 (
+    .F(n145_6),
+    .I0(fullnote[4]),
+    .I1(fullnote[5]) 
+);
+defparam n145_s3.INIT=4'h8;
+  LUT4 n173_s2 (
+    .F(n173_5),
+    .I0(fullnote[2]),
+    .I1(fullnote[3]),
+    .I2(fullnote[4]),
+    .I3(fullnote[5]) 
+);
+defparam n173_s2.INIT=16'h0001;
+  LUT4 n173_s3 (
+    .F(n173_6),
+    .I0(tone[18]),
+    .I1(tone[19]),
+    .I2(tone[20]),
+    .I3(tone[21]) 
+);
+defparam n173_s3.INIT=16'h0001;
+  DFF tone_29_s0 (
+    .Q(tone[29]),
+    .D(n7_3),
+    .CLK(clk_d) 
+);
+  DFF tone_28_s0 (
+    .Q(tone[28]),
+    .D(n8_3),
+    .CLK(clk_d) 
+);
+  DFF tone_27_s0 (
+    .Q(tone[27]),
+    .D(n9_3),
+    .CLK(clk_d) 
+);
+  DFF tone_26_s0 (
+    .Q(tone[26]),
+    .D(n10_3),
+    .CLK(clk_d) 
+);
+  DFF tone_25_s0 (
+    .Q(tone[25]),
+    .D(n11_3),
+    .CLK(clk_d) 
+);
+  DFF tone_24_s0 (
+    .Q(tone[24]),
+    .D(n12_3),
+    .CLK(clk_d) 
+);
+  DFF tone_23_s0 (
+    .Q(tone[23]),
+    .D(n13_3),
+    .CLK(clk_d) 
+);
+  DFF tone_22_s0 (
+    .Q(tone[22]),
+    .D(n14_3),
+    .CLK(clk_d) 
+);
+  DFF tone_21_s0 (
+    .Q(tone[21]),
+    .D(n15_3),
+    .CLK(clk_d) 
+);
+  DFF tone_20_s0 (
+    .Q(tone[20]),
+    .D(n16_3),
+    .CLK(clk_d) 
+);
+  DFF tone_19_s0 (
+    .Q(tone[19]),
+    .D(n17_1),
+    .CLK(clk_d) 
+);
+  DFF tone_18_s0 (
+    .Q(tone[18]),
+    .D(n18_1),
+    .CLK(clk_d) 
+);
+  DFF tone_17_s0 (
+    .Q(tone[17]),
+    .D(n19_1),
+    .CLK(clk_d) 
+);
+  DFF tone_16_s0 (
+    .Q(tone[16]),
+    .D(n20_1),
+    .CLK(clk_d) 
+);
+  DFF tone_15_s0 (
+    .Q(tone[15]),
+    .D(n21_1),
+    .CLK(clk_d) 
+);
+  DFF tone_14_s0 (
+    .Q(tone[14]),
+    .D(n22_1),
+    .CLK(clk_d) 
+);
+  DFF tone_13_s0 (
+    .Q(tone[13]),
+    .D(n23_1),
+    .CLK(clk_d) 
+);
+  DFF tone_12_s0 (
+    .Q(tone[12]),
+    .D(n24_1),
+    .CLK(clk_d) 
+);
+  DFF tone_11_s0 (
+    .Q(tone[11]),
+    .D(n25_1),
+    .CLK(clk_d) 
+);
+  DFF tone_10_s0 (
+    .Q(tone[10]),
+    .D(n26_1),
+    .CLK(clk_d) 
+);
+  DFF tone_9_s0 (
+    .Q(tone[9]),
+    .D(n27_1),
+    .CLK(clk_d) 
+);
+  DFF tone_8_s0 (
+    .Q(tone[8]),
+    .D(n28_1),
+    .CLK(clk_d) 
+);
+  DFF tone_7_s0 (
+    .Q(tone[7]),
+    .D(n29_1),
+    .CLK(clk_d) 
+);
+  DFF tone_6_s0 (
+    .Q(tone[6]),
+    .D(n30_1),
+    .CLK(clk_d) 
+);
+  DFF tone_5_s0 (
+    .Q(tone[5]),
+    .D(n31_1),
+    .CLK(clk_d) 
+);
+  DFF tone_4_s0 (
+    .Q(tone[4]),
+    .D(n32_1),
+    .CLK(clk_d) 
+);
+  DFF tone_3_s0 (
+    .Q(tone[3]),
+    .D(n33_1),
+    .CLK(clk_d) 
+);
+  DFF tone_2_s0 (
+    .Q(tone[2]),
+    .D(n34_1),
+    .CLK(clk_d) 
+);
+  DFF tone_1_s0 (
+    .Q(tone[1]),
+    .D(n35_1),
+    .CLK(clk_d) 
+);
+  DFF tone_0_s0 (
+    .Q(tone[0]),
+    .D(n36_6),
+    .CLK(clk_d) 
+);
+  DFF counter_note_8_s0 (
+    .Q(counter_note[8]),
+    .D(n104_3),
+    .CLK(clk_d) 
+);
+  DFF counter_note_7_s0 (
+    .Q(counter_note[7]),
+    .D(n105_3),
+    .CLK(clk_d) 
+);
+  DFF counter_note_6_s0 (
+    .Q(counter_note[6]),
+    .D(n106_3),
+    .CLK(clk_d) 
+);
+  DFF counter_note_5_s0 (
+    .Q(counter_note[5]),
+    .D(n107_3),
+    .CLK(clk_d) 
+);
+  DFF counter_note_4_s0 (
+    .Q(counter_note[4]),
+    .D(n108_3),
+    .CLK(clk_d) 
+);
+  DFF counter_note_3_s0 (
+    .Q(counter_note[3]),
+    .D(n109_3),
+    .CLK(clk_d) 
+);
+  DFF counter_note_2_s0 (
+    .Q(counter_note[2]),
+    .D(n110_3),
+    .CLK(clk_d) 
+);
+  DFF counter_note_1_s0 (
+    .Q(counter_note[1]),
+    .D(n111_3),
+    .CLK(clk_d) 
+);
+  DFF counter_note_0_s0 (
+    .Q(counter_note[0]),
+    .D(n112_3),
+    .CLK(clk_d) 
+);
+  DFFE counter_octave_7_s0 (
+    .Q(counter_octave[7]),
+    .D(n142_3),
+    .CLK(clk_d),
+    .CE(n93_4) 
+);
+  DFFE counter_octave_6_s0 (
+    .Q(counter_octave[6]),
+    .D(n143_3),
+    .CLK(clk_d),
+    .CE(n93_4) 
+);
+  DFFE counter_octave_5_s0 (
+    .Q(counter_octave[5]),
+    .D(n144_3),
+    .CLK(clk_d),
+    .CE(n93_4) 
+);
+  DFFE counter_octave_4_s0 (
+    .Q(counter_octave[4]),
+    .D(n145_4),
+    .CLK(clk_d),
+    .CE(n93_4) 
+);
+  DFFE counter_octave_3_s0 (
+    .Q(counter_octave[3]),
+    .D(n146_3),
+    .CLK(clk_d),
+    .CE(n93_4) 
+);
+  DFFE counter_octave_2_s0 (
+    .Q(counter_octave[2]),
+    .D(n147_3),
+    .CLK(clk_d),
+    .CE(n93_4) 
+);
+  DFFE counter_octave_1_s0 (
+    .Q(counter_octave[1]),
+    .D(n148_3),
+    .CLK(clk_d),
+    .CE(n93_4) 
+);
+  DFFSE counter_octave_0_s0 (
+    .Q(counter_octave[0]),
+    .D(n141_10),
+    .CLK(clk_d),
+    .CE(n93_4),
+    .SET(n169_3) 
+);
+  DFFE speaker_s3 (
+    .Q(speaker_d),
+    .D(n175_5),
+    .CLK(clk_d),
+    .CE(n173_3) 
+);
+defparam speaker_s3.INIT=1'b0;
+  ALU n35_s (
+    .SUM(n35_1),
+    .COUT(n35_2),
+    .I0(tone[1]),
+    .I1(tone[0]),
+    .I3(GND),
+    .CIN(GND) 
+);
+defparam n35_s.ALU_MODE=0;
+  ALU n34_s (
+    .SUM(n34_1),
+    .COUT(n34_2),
+    .I0(tone[2]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n35_2) 
+);
+defparam n34_s.ALU_MODE=0;
+  ALU n33_s (
+    .SUM(n33_1),
+    .COUT(n33_2),
+    .I0(tone[3]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n34_2) 
+);
+defparam n33_s.ALU_MODE=0;
+  ALU n32_s (
+    .SUM(n32_1),
+    .COUT(n32_2),
+    .I0(tone[4]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n33_2) 
+);
+defparam n32_s.ALU_MODE=0;
+  ALU n31_s (
+    .SUM(n31_1),
+    .COUT(n31_2),
+    .I0(tone[5]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n32_2) 
+);
+defparam n31_s.ALU_MODE=0;
+  ALU n30_s (
+    .SUM(n30_1),
+    .COUT(n30_2),
+    .I0(tone[6]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n31_2) 
+);
+defparam n30_s.ALU_MODE=0;
+  ALU n29_s (
+    .SUM(n29_1),
+    .COUT(n29_2),
+    .I0(tone[7]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n30_2) 
+);
+defparam n29_s.ALU_MODE=0;
+  ALU n28_s (
+    .SUM(n28_1),
+    .COUT(n28_2),
+    .I0(tone[8]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n29_2) 
+);
+defparam n28_s.ALU_MODE=0;
+  ALU n27_s (
+    .SUM(n27_1),
+    .COUT(n27_2),
+    .I0(tone[9]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n28_2) 
+);
+defparam n27_s.ALU_MODE=0;
+  ALU n26_s (
+    .SUM(n26_1),
+    .COUT(n26_2),
+    .I0(tone[10]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n27_2) 
+);
+defparam n26_s.ALU_MODE=0;
+  ALU n25_s (
+    .SUM(n25_1),
+    .COUT(n25_2),
+    .I0(tone[11]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n26_2) 
+);
+defparam n25_s.ALU_MODE=0;
+  ALU n24_s (
+    .SUM(n24_1),
+    .COUT(n24_2),
+    .I0(tone[12]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n25_2) 
+);
+defparam n24_s.ALU_MODE=0;
+  ALU n23_s (
+    .SUM(n23_1),
+    .COUT(n23_2),
+    .I0(tone[13]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n24_2) 
+);
+defparam n23_s.ALU_MODE=0;
+  ALU n22_s (
+    .SUM(n22_1),
+    .COUT(n22_2),
+    .I0(tone[14]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n23_2) 
+);
+defparam n22_s.ALU_MODE=0;
+  ALU n21_s (
+    .SUM(n21_1),
+    .COUT(n21_2),
+    .I0(tone[15]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n22_2) 
+);
+defparam n21_s.ALU_MODE=0;
+  ALU n20_s (
+    .SUM(n20_1),
+    .COUT(n20_2),
+    .I0(tone[16]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n21_2) 
+);
+defparam n20_s.ALU_MODE=0;
+  ALU n19_s (
+    .SUM(n19_1),
+    .COUT(n19_2),
+    .I0(tone[17]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n20_2) 
+);
+defparam n19_s.ALU_MODE=0;
+  ALU n18_s (
+    .SUM(n18_1),
+    .COUT(n18_2),
+    .I0(tone[18]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n19_2) 
+);
+defparam n18_s.ALU_MODE=0;
+  ALU n17_s (
+    .SUM(n17_1),
+    .COUT(n17_2),
+    .I0(tone[19]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n18_2) 
+);
+defparam n17_s.ALU_MODE=0;
+  ALU n16_s0 (
+    .SUM(n16_3),
+    .COUT(n16_4),
+    .I0(tone[20]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n17_2) 
+);
+defparam n16_s0.ALU_MODE=0;
+  ALU n15_s0 (
+    .SUM(n15_3),
+    .COUT(n15_4),
+    .I0(tone[21]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n16_4) 
+);
+defparam n15_s0.ALU_MODE=0;
+  ALU n14_s0 (
+    .SUM(n14_3),
+    .COUT(n14_4),
+    .I0(tone[22]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n15_4) 
+);
+defparam n14_s0.ALU_MODE=0;
+  ALU n13_s0 (
+    .SUM(n13_3),
+    .COUT(n13_4),
+    .I0(tone[23]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n14_4) 
+);
+defparam n13_s0.ALU_MODE=0;
+  ALU n12_s0 (
+    .SUM(n12_3),
+    .COUT(n12_4),
+    .I0(tone[24]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n13_4) 
+);
+defparam n12_s0.ALU_MODE=0;
+  ALU n11_s0 (
+    .SUM(n11_3),
+    .COUT(n11_4),
+    .I0(tone[25]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n12_4) 
+);
+defparam n11_s0.ALU_MODE=0;
+  ALU n10_s0 (
+    .SUM(n10_3),
+    .COUT(n10_4),
+    .I0(tone[26]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n11_4) 
+);
+defparam n10_s0.ALU_MODE=0;
+  ALU n9_s0 (
+    .SUM(n9_3),
+    .COUT(n9_4),
+    .I0(tone[27]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n10_4) 
+);
+defparam n9_s0.ALU_MODE=0;
+  ALU n8_s0 (
+    .SUM(n8_3),
+    .COUT(n8_4),
+    .I0(tone[28]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n9_4) 
+);
+defparam n8_s0.ALU_MODE=0;
+  ALU n7_s0 (
+    .SUM(n7_3),
+    .COUT(n7_1_COUT),
+    .I0(tone[29]),
+    .I1(GND),
+    .I3(GND),
+    .CIN(n8_4) 
+);
+defparam n7_s0.ALU_MODE=0;
+  INV n175_s2 (
+    .O(n175_5),
+    .I(speaker_d) 
+);
+  INV n141_s5 (
+    .O(n141_10),
+    .I(counter_octave[0]) 
+);
+  INV n36_s2 (
+    .O(n36_6),
+    .I(tone[0]) 
+);
+  music_ROM get_fullnote (
+    .clk_d(clk_d),
+    .tone(tone[29:22]),
+    .note_Z(note_Z[1:0]),
+    .fullnote(fullnote[5:2])
+);
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+  GSR GSR (
+    .GSRI(VCC) 
+);
+endmodule /* music */
