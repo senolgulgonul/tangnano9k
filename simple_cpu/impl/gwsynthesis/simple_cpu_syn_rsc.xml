@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="simple_cpu" Register="25" Alu="13" Lut="27" T_Register="25(25)" T_Alu="13(13)" T_Lut="27(27)"/>
