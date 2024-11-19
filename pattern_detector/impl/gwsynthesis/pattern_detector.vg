@@ -1,0 +1,155 @@
+//
+//Written by GowinSynthesis
+//Tool Version "V1.9.9.03 (64-bit)"
+//Mon Nov 18 23:15:12 2024
+
+//Source file index table:
+//file0 "\D:/docs/ostim/digital/gowin/pattern_detector/src/top.v"
+`timescale 100 ps/100 ps
+module fsm_example (
+  button3,
+  button4,
+  led,
+  clk
+)
+;
+input button3;
+input button4;
+output led;
+input clk;
+wire button3_d;
+wire button4_d;
+wire clk_d;
+wire state_2_8;
+wire n28_21;
+wire n26_20;
+wire state_2_9;
+wire n25_22;
+wire led_10;
+wire n27_29;
+wire n10_5;
+wire n16_5;
+wire led_d;
+wire n13_3;
+wire [2:0] state;
+wire VCC;
+wire GND;
+  IBUF button3_ibuf (
+    .O(button3_d),
+    .I(button3) 
+);
+  IBUF button4_ibuf (
+    .O(button4_d),
+    .I(button4) 
+);
+  IBUF clk_ibuf (
+    .O(clk_d),
+    .I(clk) 
+);
+  OBUF led_obuf (
+    .O(led),
+    .I(led_d) 
+);
+  LUT4 state_2_s3 (
+    .F(state_2_8),
+    .I0(state_2_9),
+    .I1(led_10),
+    .I2(n13_3),
+    .I3(state[2]) 
+);
+defparam state_2_s3.INIT=16'h44F0;
+  LUT2 n28_s14 (
+    .F(n28_21),
+    .I0(state[0]),
+    .I1(state[2]) 
+);
+defparam n28_s14.INIT=4'h1;
+  LUT3 n26_s13 (
+    .F(n26_20),
+    .I0(state[2]),
+    .I1(state[1]),
+    .I2(state[0]) 
+);
+defparam n26_s13.INIT=8'h40;
+  LUT2 state_2_s4 (
+    .F(state_2_9),
+    .I0(button3_d),
+    .I1(button4_d) 
+);
+defparam state_2_s4.INIT=4'h8;
+  LUT4 n25_s13 (
+    .F(n25_22),
+    .I0(led_d),
+    .I1(state[2]),
+    .I2(state[0]),
+    .I3(state[1]) 
+);
+defparam n25_s13.INIT=16'hAAA3;
+  LUT2 led_s7 (
+    .F(led_10),
+    .I0(state[0]),
+    .I1(state[1]) 
+);
+defparam led_s7.INIT=4'h1;
+  LUT4 n27_s18 (
+    .F(n27_29),
+    .I0(state[2]),
+    .I1(state[0]),
+    .I2(state[1]),
+    .I3(n13_3) 
+);
+defparam n27_s18.INIT=16'hB4F0;
+  LUT2 n13_s1 (
+    .F(n10_5),
+    .I0(state[0]),
+    .I1(button3_d) 
+);
+defparam n13_s1.INIT=4'h9;
+  LUT2 n13_s2 (
+    .F(n16_5),
+    .I0(state[0]),
+    .I1(button4_d) 
+);
+defparam n13_s2.INIT=4'h9;
+  DFFE state_2_s1 (
+    .Q(state[2]),
+    .D(n26_20),
+    .CLK(clk_d),
+    .CE(state_2_8) 
+);
+defparam state_2_s1.INIT=1'b0;
+  DFFE state_0_s1 (
+    .Q(state[0]),
+    .D(n28_21),
+    .CLK(clk_d),
+    .CE(state_2_8) 
+);
+defparam state_0_s1.INIT=1'b0;
+  DFF led_s6 (
+    .Q(led_d),
+    .D(n25_22),
+    .CLK(clk_d) 
+);
+defparam led_s6.INIT=1'b0;
+  DFF state_1_s2 (
+    .Q(state[1]),
+    .D(n27_29),
+    .CLK(clk_d) 
+);
+defparam state_1_s2.INIT=1'b0;
+  MUX2_LUT5 n13_s0 (
+    .O(n13_3),
+    .I0(n10_5),
+    .I1(n16_5),
+    .S0(state[1]) 
+);
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+  GSR GSR (
+    .GSRI(VCC) 
+);
+endmodule /* fsm_example */
