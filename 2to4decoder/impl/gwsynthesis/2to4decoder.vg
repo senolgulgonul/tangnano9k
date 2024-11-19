@@ -1,0 +1,80 @@
+//
+//Written by GowinSynthesis
+//Tool Version "V1.9.9.03 (64-bit)"
+//Mon Nov 18 21:54:17 2024
+
+//Source file index table:
+//file0 "\D:/docs/ostim/digital/gowin/2to4decoder/src/top.v"
+`timescale 100 ps/100 ps
+module decoder_2to4 (
+  button3,
+  button4,
+  led
+)
+;
+input button3;
+input button4;
+output [3:0] led;
+wire button3_d;
+wire button4_d;
+wire [3:0] led_d;
+wire VCC;
+wire GND;
+  IBUF button3_ibuf (
+    .O(button3_d),
+    .I(button3) 
+);
+  IBUF button4_ibuf (
+    .O(button4_d),
+    .I(button4) 
+);
+  OBUF led_0_obuf (
+    .O(led[0]),
+    .I(led_d[0]) 
+);
+  OBUF led_1_obuf (
+    .O(led[1]),
+    .I(led_d[1]) 
+);
+  OBUF led_2_obuf (
+    .O(led[2]),
+    .I(led_d[2]) 
+);
+  OBUF led_3_obuf (
+    .O(led[3]),
+    .I(led_d[3]) 
+);
+  LUT2 led_d_0_s (
+    .F(led_d[0]),
+    .I0(button4_d),
+    .I1(button3_d) 
+);
+defparam led_d_0_s.INIT=4'h7;
+  LUT2 led_d_1_s (
+    .F(led_d[1]),
+    .I0(button3_d),
+    .I1(button4_d) 
+);
+defparam led_d_1_s.INIT=4'hB;
+  LUT2 led_d_2_s (
+    .F(led_d[2]),
+    .I0(button4_d),
+    .I1(button3_d) 
+);
+defparam led_d_2_s.INIT=4'hB;
+  LUT2 led_d_3_s (
+    .F(led_d[3]),
+    .I0(button4_d),
+    .I1(button3_d) 
+);
+defparam led_d_3_s.INIT=4'hE;
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+  GSR GSR (
+    .GSRI(VCC) 
+);
+endmodule /* decoder_2to4 */
