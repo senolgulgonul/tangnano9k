@@ -1,0 +1,50 @@
+//
+//Written by GowinSynthesis
+//Tool Version "V1.9.9.03 (64-bit)"
+//Mon Nov 18 22:00:17 2024
+
+//Source file index table:
+//file0 "\D:/docs/ostim/digital/gowin/equality/src/top.v"
+`timescale 100 ps/100 ps
+module button_comparator (
+  button3,
+  button4,
+  led
+)
+;
+input button3;
+input button4;
+output led;
+wire button3_d;
+wire button4_d;
+wire led_d;
+wire VCC;
+wire GND;
+  IBUF button3_ibuf (
+    .O(button3_d),
+    .I(button3) 
+);
+  IBUF button4_ibuf (
+    .O(button4_d),
+    .I(button4) 
+);
+  OBUF led_obuf (
+    .O(led),
+    .I(led_d) 
+);
+  LUT2 led_d_s (
+    .F(led_d),
+    .I0(button3_d),
+    .I1(button4_d) 
+);
+defparam led_d_s.INIT=4'h6;
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+  GSR GSR (
+    .GSRI(VCC) 
+);
+endmodule /* button_comparator */
