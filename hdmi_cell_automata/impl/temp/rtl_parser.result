@@ -1,0 +1,44 @@
+[
+ {
+  "InstFile" : "D:/docs/ostim/digital/gowin/hdmi_cell_automata/src/top.v",
+  "InstLine" : 1,
+  "InstName" : "HDMI_automata",
+  "ModuleFile" : "D:/docs/ostim/digital/gowin/hdmi_cell_automata/src/top.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "HDMI_automata",
+  "SubInsts" : [
+   {
+    "InstFile" : "D:/docs/ostim/digital/gowin/hdmi_cell_automata/src/top.v",
+    "InstLine" : 12,
+    "InstName" : "pllInstance",
+    "ModuleFile" : "D:/docs/ostim/digital/gowin/hdmi_cell_automata/src/gowin_rpll/gowin_rpll.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "Gowin_rPLL"
+   },
+   {
+    "InstFile" : "D:/docs/ostim/digital/gowin/hdmi_cell_automata/src/top.v",
+    "InstLine" : 107,
+    "InstName" : "encode_R",
+    "ModuleFile" : "D:/docs/ostim/digital/gowin/hdmi_cell_automata/src/top.v",
+    "ModuleLine" : 148,
+    "ModuleName" : "TMDS_encoder"
+   },
+   {
+    "InstFile" : "D:/docs/ostim/digital/gowin/hdmi_cell_automata/src/top.v",
+    "InstLine" : 108,
+    "InstName" : "encode_G",
+    "ModuleFile" : "D:/docs/ostim/digital/gowin/hdmi_cell_automata/src/top.v",
+    "ModuleLine" : 148,
+    "ModuleName" : "TMDS_encoder"
+   },
+   {
+    "InstFile" : "D:/docs/ostim/digital/gowin/hdmi_cell_automata/src/top.v",
+    "InstLine" : 109,
+    "InstName" : "encode_B",
+    "ModuleFile" : "D:/docs/ostim/digital/gowin/hdmi_cell_automata/src/top.v",
+    "ModuleLine" : 148,
+    "ModuleName" : "TMDS_encoder"
+   }
+  ]
+ }
+]

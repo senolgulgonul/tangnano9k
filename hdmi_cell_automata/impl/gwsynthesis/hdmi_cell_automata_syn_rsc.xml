@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="HDMI_automata" Register="1348" Alu="31" Lut="1820" T_Register="1371(1348)" T_Alu="43(31)" T_Lut="1848(1820)">
+    <SubModule name="pllInstance"/>
+    <SubModule name="encode_R" Register="7" Alu="4" Lut="15" T_Register="7(7)" T_Alu="4(4)" T_Lut="15(15)"/>
+    <SubModule name="encode_G" Register="8" Alu="4" Lut="6" T_Register="8(8)" T_Alu="4(4)" T_Lut="6(6)"/>
+    <SubModule name="encode_B" Register="8" Alu="4" Lut="7" T_Register="8(8)" T_Alu="4(4)" T_Lut="7(7)"/>
+</Module>
