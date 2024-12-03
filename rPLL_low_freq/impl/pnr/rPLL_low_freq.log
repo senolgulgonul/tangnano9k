@@ -1,0 +1,29 @@
+Reading netlist file: "D:\docs\ostim\digital\gowin\rPLL_low_freq\impl\gwsynthesis\rPLL_low_freq.vg"
+Parsing netlist file "D:\docs\ostim\digital\gowin\rPLL_low_freq\impl\gwsynthesis\rPLL_low_freq.vg" completed
+Processing netlist completed
+Reading constraint file: "D:\docs\ostim\digital\gowin\rPLL_low_freq\src\rPLL_low_freq.cst"
+Physical Constraint parsed completed
+Running placement......
+[10%] Placement Phase 0 completed
+[20%] Placement Phase 1 completed
+[30%] Placement Phase 2 completed
+[50%] Placement Phase 3 completed
+Running routing......
+[60%] Routing Phase 0 completed
+[70%] Routing Phase 1 completed
+[80%] Routing Phase 2 completed
+[90%] Routing Phase 3 completed
+Running timing analysis......
+[95%] Timing analysis completed
+Placement and routing completed
+Bitstream generation in progress......
+Bitstream generation completed
+Running power analysis......
+[100%] Power analysis completed
+Generate file "D:\docs\ostim\digital\gowin\rPLL_low_freq\impl\pnr\rPLL_low_freq.power.html" completed
+Generate file "D:\docs\ostim\digital\gowin\rPLL_low_freq\impl\pnr\rPLL_low_freq.pin.html" completed
+Generate file "D:\docs\ostim\digital\gowin\rPLL_low_freq\impl\pnr\rPLL_low_freq.rpt.html" completed
+Generate file "D:\docs\ostim\digital\gowin\rPLL_low_freq\impl\pnr\rPLL_low_freq.rpt.txt" completed
+Generate file "D:\docs\ostim\digital\gowin\rPLL_low_freq\impl\pnr\rPLL_low_freq.tr.html" completed
+Sun Sep  8 15:36:26 2024
+

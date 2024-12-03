@@ -1,0 +1,20 @@
+[
+ {
+  "InstFile" : "D:/docs/ostim/digital/gowin/rPLL_low_freq/src/top.v",
+  "InstLine" : 1,
+  "InstName" : "top",
+  "ModuleFile" : "D:/docs/ostim/digital/gowin/rPLL_low_freq/src/top.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "top",
+  "SubInsts" : [
+   {
+    "InstFile" : "D:/docs/ostim/digital/gowin/rPLL_low_freq/src/top.v",
+    "InstLine" : 7,
+    "InstName" : "your_instance_name",
+    "ModuleFile" : "D:/docs/ostim/digital/gowin/rPLL_low_freq/src/gowin_rpll/gowin_rpll.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "Gowin_rPLL"
+   }
+  ]
+ }
+]
