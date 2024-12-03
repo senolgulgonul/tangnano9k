@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="uart_tx" Register="21" Alu="15" Lut="14" T_Register="21(21)" T_Alu="15(15)" T_Lut="14(14)"/>
