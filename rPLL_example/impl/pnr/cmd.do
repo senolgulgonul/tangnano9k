@@ -1,0 +1,13 @@
+-d D:\docs\ostim\digital\gowin\rPLL_example\impl\gwsynthesis\rPLL_example.vg
+-p GW1NR-9C-QFN88P-6
+-pn GW1NR-LV9QN88PC6/I5
+-cst D:\docs\ostim\digital\gowin\rPLL_example\src\rPLL_example.cst
+-cfg D:\docs\ostim\digital\gowin\rPLL_example\impl\pnr\device.cfg
+-bit
+-tr
+-ph
+-timing
+-cst_error
+-correct_hold 1
+-route_maxfan 23
+-global_freq 50.000
