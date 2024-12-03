@@ -1,0 +1,10 @@
+[
+ {
+  "InstFile" : "D:/docs/ostim/digital/gowin/uart_rx/src/top.v",
+  "InstLine" : 1,
+  "InstName" : "uart_rx_leds",
+  "ModuleFile" : "D:/docs/ostim/digital/gowin/uart_rx/src/top.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "uart_rx_leds"
+ }
+]
